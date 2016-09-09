@@ -7,12 +7,13 @@
 from lib_oled96 import ssd1306
 from time import sleep
 from PIL import ImageFont, ImageDraw, Image
-from smbus import SMBus
-
-
 font = ImageFont.load_default()
 
-i2cbus = SMBus(1) # 1 = Raspberry Pi but NOT early REV1 board
+
+from smbus import SMBus                  #  These are the only two variant lines !!
+i2cbus = SMBus(1)                        #
+# 1 = Raspberry Pi but NOT early REV1 board
+
 oled = ssd1306(i2cbus)
 draw = oled.canvas   # "draw" onto this canvas, then call display() to send the canvas contents to the hardware.
 
